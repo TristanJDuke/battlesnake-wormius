@@ -37,9 +37,6 @@ function handleMove(request, response) {
   var gameData = request.body;
 
   var possibleMoves = ["up", "down", "left", "right"];
-  //var move = possibleMoves[Math.floor(Math.random() * possibleMoves.length)]
-  //gameData you, board, turn and game
-
   //console.log(gameData.you.health)
   //console.log(gameData.board.food)
   //console.log(gameData.you.head)
@@ -49,7 +46,6 @@ function handleMove(request, response) {
   let closestDistance = Infinity;
 
   for (let food of foodList) {
-    //console.log(food.x,food.y);
     let currentDistance =
       Math.abs(food.x - gameData.you.head.x) +
       Math.abs(food.y - gameData.you.head.y);
@@ -103,7 +99,6 @@ function handleMove(request, response) {
       move = "right";
     }
   }
-  //console.log(JSON.stringify(board.snakes))
   console.log("MOVE: " + move);
   response.status(200).send({
     move: move,
